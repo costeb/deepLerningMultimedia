@@ -60,6 +60,9 @@ imshow(torchvision.utils.make_grid(images))
 print(' '.join('%5s' % classes[labels[j]] for j in range(4)))
 
 
+
+
+
 ##2. Define a Convolutional Neural Network
 
 ##Copy the neural network from the Neural Networks section before and modify it to take 3-channel images (instead of 1-channel images as it was defined).
@@ -88,7 +91,7 @@ class Net(nn.Module):
         return x
 
 
-net = Net()
+net = Net() 
 net.to(device)
 
 
@@ -103,9 +106,25 @@ optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
 
 ##4. Train the network
 
+##Fonction d'évalutaion (Partie Evaluation en continu du système):
+def evaluation():
+	correct = 0
+	total = 0
+	with torch.no_grad():
+	    for data in testloader:
+	        images, labels = data[0].to(device), data[1].to(device)
+	        outputs = net(images)
+	        _, predicted = torch.max(outputs.data, 1)
+	        total += labels.size(0)
+	        correct += (predicted == labels).sum().item()
+
+	print('Accuracy of the network on the 10000 test images: %d %%' % (
+	    100 * correct / total))
+
 ##This is when things start to get interesting. We simply have to loop over our data iterator, and feed the inputs to the network and optimize.
 
-for epoch in range(2):  # loop over the dataset multiple times
+evaluation()
+for epoch  in range(2):  # loop over the dataset multiple times
 
     running_loss = 0.0
     for i, data in enumerate(trainloader, 0):
@@ -121,12 +140,8 @@ for epoch in range(2):  # loop over the dataset multiple times
         loss.backward()
         optimizer.step()
 
-        # print statistics
-        running_loss += loss.item()
-        if i % 2000 == 1999:    # print every 2000 mini-batches
-            print('[%d, %5d] loss: %.3f' %
-                  (epoch + 1, i + 1, running_loss / 2000))
-            running_loss = 0.0
+    print('evaluation after epoch', (epoch + 1))
+    evaluation()
 
 print('Finished Training')
 
