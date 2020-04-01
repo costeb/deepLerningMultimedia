@@ -52,3 +52,23 @@ A tester:
 - Smooth L1 Loss
 - Negative Log-Likelihood Loss
 - Margin Ranking Loss
+
+# Calcul du nombre d'opérations flottantes effectuées pour les passes avant (le nombre d'opérations pour les passes arrières, quand il y en a, est quasiment le même) pour une image ; on comptera une opération pour une addition, pour une multiplication ou pour un maximum, même si ces opérations sont de complexités différentes.
+
+Dans forward: relu = une fonction
+Nombre d'opérations pour relu(x) = taille de x
+
+conv(x) = fonction
+conv(x) = Cconvolution * entrées * sorties
+Supposons une convolution stride 1, no padding
+Pour 4 tenseurs d'entrée, 5 de sorties, kernel de taille 3 : 
+    Complexité = (3*3) *
+
+Pour x tenseurs d'entrée dans tableau X, y tenseurs de sortie dans tableau Y, kernel de taille k:
+    nb_operations = ((k*k)* taille de chaque tenseur x) * taille de Y[]
+
+MaxPooling: système de fenêttre appliquznt la fonction max ( https://www.quora.com/What-is-max-pooling-in-convolutional-neural-networks )
+nn.MaxPool2d(2, 2) : kernel de taille 2, stride de taille 2
+Complexité pooling appliqué à un tenseur: (taille du tenseur / taille kernel au carré) * 1 (opération de max)
+Si après conv(3,4,5) appliqué 4 fois (les 4 tenseurs de sortie)
+

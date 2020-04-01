@@ -84,7 +84,10 @@ class Net(nn.Module):
         self.fc3 = nn.Linear(84, 10)
 
     def forward(self, x):
-        x = F.relu(self.conv1(x))
+        x = self.conv1(x)
+        print("self.conv1(x)",x)
+        x = F.relu(x)
+        print("F.relu(self.conv1(x))",x)
         x = self.pool(F.relu(self.conv2(x)))
         x = self.pool(F.relu(self.conv3(x)))
         x = x.view(-1, 16 * 5 * 5)
