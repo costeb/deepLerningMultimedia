@@ -72,3 +72,5 @@ nn.MaxPool2d(2, 2) : kernel de taille 2, stride de taille 2
 Complexité pooling appliqué à un tenseur: (taille du tenseur / taille kernel au carré) * 1 (opération de max)
 Si après conv(3,4,5) appliqué 4 fois (les 4 tenseurs de sortie)
 
+Linéaire:
+https://stackoverflow.com/questions/54916135/what-is-the-class-definition-of-nn-linear-in-pytorch

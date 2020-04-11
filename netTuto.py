@@ -72,6 +72,8 @@ import torch.nn.functional as F
 
 
 class Net(nn.Module):
+    complexite = 0
+
     def __init__(self):
         super(Net, self).__init__()
         self.conv1 = nn.Conv2d(3, 4, 3)
@@ -83,22 +85,86 @@ class Net(nn.Module):
         self.fc2 = nn.Linear(120, 84)
         self.fc3 = nn.Linear(84, 10)
 
+    def getComplexite(self):
+        return self.complexite
+
     def forward(self, x):
+        #print(x)
+        #Conv 1
+        xsize = x.size()
+        totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
+        ajoutPoidsConvolution(self, 3, 4, 3, totalSize)
         x = self.conv1(x)
-        print("self.conv1(x)",x)
+        #Relu
+        xsize = x.size()
+        totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
+        ajoutPoidsRelu(self, totalSize)
         x = F.relu(x)
-        print("F.relu(self.conv1(x))",x)
-        x = self.pool(F.relu(self.conv2(x)))
-        x = self.pool(F.relu(self.conv3(x)))
+        #Conv2
+        xsize = x.size()
+        totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
+        ajoutPoidsConvolution(self, 4, 6, 3, totalSize)
+        x = self.conv2(x)
+        #Relu
+        xsize = x.size()
+        totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
+        ajoutPoidsRelu(self, totalSize)
+        x = F.relu(x)
+        #Pool
+        xsize = x.size()
+        totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
+        ajoutPoidsMaxPool(self, 2, totalSize)
+        x = self.pool(x)
+        #Conv3
+        xsize = x.size()
+        totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
+        ajoutPoidsConvolution(self, 6, 16, 5, totalSize)
+        x = self.conv3(x)
+        #Relu
+        xsize = x.size()
+        totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
+        ajoutPoidsRelu(self, totalSize)
+        x = F.relu(x)
+        #Pool
+        xsize = x.size()
+        totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
+        ajoutPoidsMaxPool(self, 2, totalSize)
+        x = self.pool(x)
+
         x = x.view(-1, 16 * 5 * 5)
-        x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
+        
+        #Linéaire1
+        xsize = x.size()
+        totalSize = xsize[0]*xsize[1]
+        x = self.fc1(x)
+        ajoutPoidsLinear(self, x)
+        #Relu
+        xsize = x.size()
+        totalSize = xsize[0]*xsize[1]
+        ajoutPoidsRelu(self, totalSize)
+        x = F.relu(x)
+        #Linéaire2
+        xsize = x.size()
+        totalSize = xsize[0]*xsize[1]
+        x = self.fc2(x)
+        ajoutPoidsLinear(self, x)
+        #Relu
+        xsize = x.size()
+        totalSize = xsize[0]*xsize[1]
+        ajoutPoidsRelu(self, totalSize)
+        x = F.relu(x)
+        #Linéaire3
+        xsize = x.size()
+        totalSize = xsize[0]*xsize[1]
         x = self.fc3(x)
+        ajoutPoidsLinear(self, x)
+        #print ("complexite ="+str(self.complexite))
         return x
 
 
 net = Net() 
 net.to(device)
+
 
 
 ##3. Define a Loss function and optimizer
@@ -127,6 +193,28 @@ def evaluation():
 	print('Accuracy of the network on the 10000 test images: %d %%' % (
 	    100 * correct / total))
 
+"""Ajout au calcul de la complexité totale 
+la complexité d'un relu sur un tenseur de taille size """
+def ajoutPoidsRelu(self, size):
+    self.complexite += size
+
+"""Ajout au calcul de la complexité totale 
+la complexité d'un convolution(x,y,k), sur un tenseur de taille size"""
+def ajoutPoidsConvolution(self, x, y, k, size):
+    compKernel = k*k
+    self.complexite += compKernel * size * y
+
+"""Ajout au calcul de la complexité totale 
+la complexité d'un MaxPool2D(k, s), sur un tenseur de taille size"""
+def ajoutPoidsMaxPool(self, k, size):
+    self.complexite += size / (k*k)
+
+"""Ajout au calcul de la complexité totale 
+la complexité d'un MaxPool2D(k, s), sur un tenseur de taille size"""
+def ajoutPoidsLinear(self, y):
+    self.complexite += 4 * (y.size()[0] * y.size()[1])
+
+
 ##This is when things start to get interesting. We simply have to loop over our data iterator, and feed the inputs to the network and optimize.
 
 evaluation()
@@ -142,6 +230,9 @@ for epoch  in range(10):  # loop over the dataset multiple times
 
         # forward + backward + optimize
         outputs = net(inputs)
+        if(i%1000 == 0):
+            print("complexite="+str(net.getComplexite()))
+        
         loss = criterion(outputs, labels)
         loss.backward()
         optimizer.step()
