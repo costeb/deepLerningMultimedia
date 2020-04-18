@@ -23,7 +23,10 @@ testloader = torch.utils.data.DataLoader(testset, batch_size=4,
 classes = ('plane', 'car', 'bird', 'cat',
            'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
 
-
+#Définition variables complexité
+complexiteImage = 0
+complexiteEpoque = 0
+complexiteTotale = 0
 
 ### Utilisation GPU CUDA
 
@@ -218,7 +221,7 @@ def ajoutPoidsLinear(self, y):
 ##This is when things start to get interesting. We simply have to loop over our data iterator, and feed the inputs to the network and optimize.
 
 evaluation()
-for epoch  in range(10):  # loop over the dataset multiple times
+for epoch  in range(2):  # loop over the dataset multiple times
 
     running_loss = 0.0
     for i, data in enumerate(trainloader, 0):
@@ -230,6 +233,8 @@ for epoch  in range(10):  # loop over the dataset multiple times
 
         # forward + backward + optimize
         outputs = net(inputs)
+        if(epoch == 0 and i == 0):
+            complexiteImage = net.getComplexite()
         if(i%1000 == 0):
             print("complexite="+str(net.getComplexite()))
         
@@ -237,8 +242,17 @@ for epoch  in range(10):  # loop over the dataset multiple times
         loss.backward()
         optimizer.step()
 
+    if(epoch == 0):
+        complexiteEpoque = net.getComplexite()
+
+    complexiteTotale = net.getComplexite()
+
     print('evaluation after epoch', (epoch + 1))
     evaluation()
+
+print("complexiteImage="+str(complexiteImage))
+print("complexiteEpoque="+str(complexiteEpoque))
+print("complexiteTotale="+str(complexiteTotale))
 
 print('Finished Training')
 
