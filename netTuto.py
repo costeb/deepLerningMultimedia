@@ -243,16 +243,14 @@ for epoch  in range(2):  # loop over the dataset multiple times
         optimizer.step()
 
     if(epoch == 0):
-        complexiteEpoque = net.getComplexite()
+        complexiteEpoque = net.getComplexite()*2 #Multiplié par 2 pour compter passes avant et arrière
 
-    complexiteTotale = net.getComplexite()
+    complexiteTotale = net.getComplexite()*2 #Multiplié par 2 pour compter passes avant et arrière
 
     print('evaluation after epoch', (epoch + 1))
     evaluation()
 
-print("complexiteImage="+str(complexiteImage))
-print("complexiteEpoque="+str(complexiteEpoque))
-print("complexiteTotale="+str(complexiteTotale))
+
 
 print('Finished Training')
 
@@ -305,6 +303,14 @@ with torch.no_grad():
         _, predicted = torch.max(outputs.data, 1)
         total += labels.size(0)
         correct += (predicted == labels).sum().item()
+
+    #Ajout des passes avant du test à la complexité
+    complexiteEpoque += net.getComplexite()
+    complexiteTotale += net.getComplexite()
+
+print("complexiteImage="+str(complexiteImage))
+print("complexiteEpoque="+str(complexiteEpoque))
+print("complexiteTotale="+str(complexiteTotale))
 
 print('Accuracy of the network on the 10000 test images: %d %%' % (
     100 * correct / total))

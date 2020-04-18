@@ -74,3 +74,28 @@ Si après conv(3,4,5) appliqué 4 fois (les 4 tenseurs de sortie)
 
 Linéaire:
 https://stackoverflow.com/questions/54916135/what-is-the-class-definition-of-nn-linear-in-pytorch
+
+
+
+#A faire:
+
+Fonction spécifique pour le calcul de l'erreur (ou de la précision) globale sur l'ensemble de test : Fait
+
+Appel de cette fonction avant la première itération (époque) et après chaque itération : Fait
+
+Affichage de l'évolution de l'erreur (ou de la précision) globale en fonction des itérations : Fait
+
+Essais de modification de l'architecture du réseau (taille, nombre et/ou types des couches) ou de conditions d'apprentissage (
+augmentation de données) : A Faire
+
+Description complète de votre réseau final avec : nombre de couches et sous-couches, identification de toutes les variables intermédiaires (les “Xn”) de l'entrée à la sortie et en donnant leurs dimensions (tailles de tenseurs) ; identification de toutes les fonctions successives (les “Fn”) avec leurs types ; et identification de tous les paramètres de ces fonctions (les “Wn”), en donnant leurs dimensions (tailles de tenseurs) et en précisant éventuellement s'ils sont nuls (pas de paramètres pour la fonction correspondante). : A Faire
+
+Calcul du nombre d'opérations flottantes effectuées pour les passes avant (le nombre d'opérations pour les passes arrières, quand il y en a, est quasiment le même) pour une image ; on comptera une opération pour une addition, pour une multiplication ou pour un maximum, même si ces opérations sont de complexités différentes. : Fait
+
+Calcul du nombre total d'opérations pour une époque, incluant les passes avant et arrière pour les images d'entraînement et uniquement une passe avant pour les images de test. : Fait
+
+Même calcul pour l'entraînemenent et l'évaluation en continu sur l'ensemble des époques. : Fait
+
+Calcul en nombre total d'opérations flottantes par seconde sur la durée d'entraînement. : A Faire
+
+Et, finalement, la meilleure performance obtenue avec les contraintes de nombre de paramètres et de temps d'entraînement. : A Faire
