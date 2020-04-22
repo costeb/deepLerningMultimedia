@@ -3,7 +3,7 @@
 import torch
 import torchvision
 import torchvision.transforms as transforms
-
+import time
 ##The output of torchvision datasets are PILImage images of range [0, 1]. We transform them to Tensors of normalized range [-1, 1]. .. note:
 
 transform = transforms.Compose(
@@ -82,11 +82,11 @@ class Net(nn.Module):
 
     def __init__(self):
         super(Net, self).__init__()
-        self.conv1 = nn.Conv2d(3, 4, 3)
+        self.conv1 = nn.Conv2d(3, 6, 3)
         self.pool = nn.MaxPool2d(2, 2)
-        self.conv2 = nn.Conv2d(4, 6, 3)
+        self.conv2 = nn.Conv2d(6, 8, 3)
         self.pool = nn.MaxPool2d(2, 2)
-        self.conv3 = nn.Conv2d(6, 16, 5)
+        self.conv3 = nn.Conv2d(8, 16, 5)
         self.fc1 = nn.Linear(16 * 5 * 5, 120)
         self.fc2 = nn.Linear(120, 84)
         self.fc3 = nn.Linear(84, 10)
@@ -102,7 +102,7 @@ class Net(nn.Module):
         #Conv 1
         xsize = x.size()
         totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
-        ajoutPoidsConvolution(self, 3, 4, 3, totalSize)
+        ajoutPoidsConvolution(self, 3, 6, 3, totalSize)
         x = self.conv1(x)
         if (debogage == 1):
             print(x.size())
@@ -118,7 +118,7 @@ class Net(nn.Module):
         #Conv2
         xsize = x.size()
         totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
-        ajoutPoidsConvolution(self, 4, 6, 3, totalSize)
+        ajoutPoidsConvolution(self, 6, 8, 3, totalSize)
         x = self.conv2(x)
         if (debogage == 1):
             print(x.size())
@@ -142,7 +142,7 @@ class Net(nn.Module):
         #Conv3
         xsize = x.size()
         totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
-        ajoutPoidsConvolution(self, 6, 16, 5, totalSize)
+        ajoutPoidsConvolution(self, 8, 16, 5, totalSize)
         x = self.conv3(x)
         if (debogage == 1):
             print(x.size())
@@ -251,7 +251,9 @@ def ajoutPoidsLinear(self, y):
 ##This is when things start to get interesting. We simply have to loop over our data iterator, and feed the inputs to the network and optimize.
 
 evaluation()
-for epoch  in range(2):  # loop over the dataset multiple times
+# Debut du decompte du temps
+start_time = time.time()
+for epoch  in range(1):  # loop over the dataset multiple times
 
     running_loss = 0.0
     for i, data in enumerate(trainloader, 0):
@@ -280,7 +282,10 @@ for epoch  in range(2):  # loop over the dataset multiple times
     print('evaluation after epoch', (epoch + 1))
     evaluation()
 
-
+# Affichage du temps d execution
+print("Temps d execution : %s secondes ---" % (time.time() - start_time))
+print( time.time() - start_time )
+print( complexiteTotale / (time.time() - start_time) )
 
 print('Finished Training')
 
