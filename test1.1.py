@@ -11,7 +11,7 @@ Critère d'évaluation : CrossEntropyLoss
 import torch
 import torchvision
 import torchvision.transforms as transforms
-
+import time
 ##The output of torchvision datasets are PILImage images of range [0, 1]. We transform them to Tensors of normalized range [-1, 1]. .. note:
 
 transform = transforms.Compose(
@@ -259,7 +259,9 @@ def ajoutPoidsLinear(self, y):
 ##This is when things start to get interesting. We simply have to loop over our data iterator, and feed the inputs to the network and optimize.
 
 evaluation()
-for epoch  in range(2):  # loop over the dataset multiple times
+# Debut du decompte du temps
+start_time = time.time()
+for epoch  in range(6):  # loop over the dataset multiple times
 
     running_loss = 0.0
     for i, data in enumerate(trainloader, 0):
@@ -288,7 +290,10 @@ for epoch  in range(2):  # loop over the dataset multiple times
     print('evaluation after epoch', (epoch + 1))
     evaluation()
 
-
+# Affichage du temps d execution
+print("Temps d execution : %s secondes ---" % (time.time() - start_time))
+print( time.time() - start_time )
+print( complexiteTotale / (time.time() - start_time) )
 
 print('Finished Training')
 
@@ -609,6 +614,126 @@ Accuracy of  frog : 72 %
 Accuracy of horse : 66 %
 Accuracy of  ship : 80 %
 Accuracy of truck : 60 %
+
+
+reultat epoch 6 et operation par seconde
+
+Files already downloaded and verified
+Files already downloaded and verified
+cuda:0
+ frog   car truck plane
+Accuracy of the network on the 10000 test images: 10 %
+complexite=7882471728.0
+complexite=11034199728.0
+complexite=14185927728.0
+complexite=17337655728.0
+complexite=20489383728.0
+complexite=23641111728.0
+complexite=26792839728.0
+complexite=29944567728.0
+complexite=33096295728.0
+complexite=36248023728.0
+complexite=39399751728.0
+complexite=42551479728.0
+complexite=45703207728.0
+evaluation after epoch 1
+Accuracy of the network on the 10000 test images: 41 %
+complexite=55158391728.0
+complexite=58310119728.0
+complexite=61461847728.0
+complexite=64613575728.0
+complexite=67765303728.0
+complexite=70917031728.0
+complexite=74068759728.0
+complexite=77220487728.0
+complexite=80372215728.0
+complexite=83523943728.0
+complexite=86675671728.0
+complexite=89827399728.0
+complexite=92979127728.0
+evaluation after epoch 2
+Accuracy of the network on the 10000 test images: 49 %
+complexite=102434311728.0
+complexite=105586039728.0
+complexite=108737767728.0
+complexite=111889495728.0
+complexite=115041223728.0
+complexite=118192951728.0
+complexite=121344679728.0
+complexite=124496407728.0
+complexite=127648135728.0
+complexite=130799863728.0
+complexite=133951591728.0
+complexite=137103319728.0
+complexite=140255047728.0
+evaluation after epoch 3
+Accuracy of the network on the 10000 test images: 54 %
+complexite=149710231728.0
+complexite=152861959728.0
+complexite=156013687728.0
+complexite=159165415728.0
+complexite=162317143728.0
+complexite=165468871728.0
+complexite=168620599728.0
+complexite=171772327728.0
+complexite=174924055728.0
+complexite=178075783728.0
+complexite=181227511728.0
+complexite=184379239728.0
+complexite=187530967728.0
+evaluation after epoch 4
+Accuracy of the network on the 10000 test images: 58 %
+complexite=196986151728.0
+complexite=200137879728.0
+complexite=203289607728.0
+complexite=206441335728.0
+complexite=209593063728.0
+complexite=212744791728.0
+complexite=215896519728.0
+complexite=219048247728.0
+complexite=222199975728.0
+complexite=225351703728.0
+complexite=228503431728.0
+complexite=231655159728.0
+complexite=234806887728.0
+evaluation after epoch 5
+Accuracy of the network on the 10000 test images: 60 %
+complexite=244262071728.0
+complexite=247413799728.0
+complexite=250565527728.0
+complexite=253717255728.0
+complexite=256868983728.0
+complexite=260020711728.0
+complexite=263172439728.0
+complexite=266324167728.0
+complexite=269475895728.0
+complexite=272627623728.0
+complexite=275779351728.0
+complexite=278931079728.0
+complexite=282082807728.0
+evaluation after epoch 6
+Accuracy of the network on the 10000 test images: 61 %
+Temps d execution : 282.984304189682 secondes ---
+282.98440647125244
+2004742692.575265
+Finished Training
+GroundTruth:    cat  ship  ship plane
+Predicted:    cat   car  ship plane
+complexiteImage=7882471728.0
+complexiteEpoque=102434311728.0
+complexiteTotale=575193511728.0
+Accuracy of the network on the 10000 test images: 61 %
+Accuracy of plane : 73 %
+Accuracy of   car : 81 %
+Accuracy of  bird : 53 %
+Accuracy of   cat : 29 %
+Accuracy of  deer : 67 %
+Accuracy of   dog : 33 %
+Accuracy of  frog : 77 %
+Accuracy of horse : 62 %
+Accuracy of  ship : 61 %
+Accuracy of truck : 74 %
+Out[11]: '\nResulat 1 :\n\nFiles already downloaded and verified\nFiles already downloaded and verified\ncuda:0\n frog   dog  bird   car\nAccuracy of the network on the 10000 test images: 9 %\ncomplexite=7882471728.0\ncomplexite=11034199728.0\ncomplexite=14185927728.0\ncomplexite=17337655728.0\ncomplexite=20489383728.0\ncomplexite=23641111728.0\ncomplexite=26792839728.0\ncomplexite=29944567728.0\ncomplexite=33096295728.0\ncomplexite=36248023728.0\ncomplexite=39399751728.0\ncomplexite=42551479728.0\ncomplexite=45703207728.0\nevaluation after epoch 1\nAccuracy of the network on the 10000 test images: 44 %\ncomplexite=55158391728.0\ncomplexite=58310119728.0\ncomplexite=61461847728.0\ncomplexite=64613575728.0\ncomplexite=67765303728.0\ncomplexite=70917031728.0\ncomplexite=74068759728.0\ncomplexite=77220487728.0\ncomplexite=80372215728.0\ncomplexite=83523943728.0\ncomplexite=86675671728.0\ncomplexite=89827399728.0\ncomplexite=92979127728.0\nevaluation after epoch 2\nAccuracy of the network on the 10000 test images: 52 %\nFinished Training\nGroundTruth:    cat  ship  ship plane\nPredicted:    cat plane  ship plane\ncomplexiteImage=7882471728.0\ncomplexiteEpoque=102434311728.0\ncomplexiteTotale=196986151728.0\nAccuracy of the network on the 10000 test images: 52 %\nAccuracy of plane : 58 %\nAccuracy of   car : 76 %\nAccuracy of  bird : 48 %\nAccuracy of   cat : 24 %\nAccuracy of  deer : 49 %\nAccuracy of   dog : 37 %\nAccuracy of  frog : 71 %\nAccuracy of horse : 57 %\nAccuracy of  ship : 63 %\nAccuracy of truck : 34 %\n\n\n\nResultat 2:\n\nFiles already downloaded and verified\nFiles already downloaded and verified\ncuda:0\nhorse  deer   car  bird\nAccuracy of the network on the 10000 test images: 10 %\ncomplexite=7882471728.0\ncomplexite=11034199728.0\ncomplexite=14185927728.0\ncomplexite=17337655728.0\ncomplexite=20489383728.0\ncomplexite=23641111728.0\ncomplexite=26792839728.0\ncomplexite=29944567728.0\ncomplexite=33096295728.0\ncomplexite=36248023728.0\ncomplexite=39399751728.0\ncomplexite=42551479728.0\ncomplexite=45703207728.0\nevaluation after epoch 1\nAccuracy of the network on the 10000 test images: 44 %\ncomplexite=55158391728.0\ncomplexite=58310119728.0\ncomplexite=61461847728.0\ncomplexite=64613575728.0\ncomplexite=67765303728.0\ncomplexite=70917031728.0\ncomplexite=74068759728.0\ncomplexite=77220487728.0\ncomplexite=80372215728.0\ncomplexite=83523943728.0\ncomplexite=86675671728.0\ncomplexite=89827399728.0\ncomplexite=92979127728.0\nevaluation after epoch 2\nAccuracy of the network on the 10000 test images: 48 %\nFinished Training\nGroundTruth:    cat  ship  ship plane\nPredicted:    cat plane plane plane\ncomplexiteImage=7882471728.0\ncomplexiteEpoque=102434311728.0\ncomplexiteTotale=196986151728.0\nAccuracy of the network on the 10000 test images: 48 %\nAccuracy of plane : 66 %\nAccuracy of   car : 64 %\nAccuracy of  bird : 46 %\nAccuracy of   cat : 25 %\nAccuracy of  deer : 49 %\nAccuracy of   dog : 19 %\nAccuracy of  frog : 64 %\nAccuracy of horse : 60 %\nAccuracy of  ship : 49 %\nAccuracy of truck : 36 %\n\n\n\n\nresultat 6 epoch :\n\nFiles already downloaded and verified\nFiles already downloaded and verified\ncuda:0\nplane   car  bird   cat\nAccuracy of the network on the 10000 test images: 10 %\ncomplexite=7882471728.0\ncomplexite=11034199728.0\ncomplexite=14185927728.0\ncomplexite=17337655728.0\ncomplexite=20489383728.0\ncomplexite=23641111728.0\ncomplexite=26792839728.0\ncomplexite=29944567728.0\ncomplexite=33096295728.0\ncomplexite=36248023728.0\ncomplexite=39399751728.0\ncomplexite=42551479728.0\ncomplexite=45703207728.0\nevaluation after epoch 1\nAccuracy of the network on the 10000 test images: 42 %\ncomplexite=55158391728.0\ncomplexite=58310119728.0\ncomplexite=61461847728.0\ncomplexite=64613575728.0\ncomplexite=67765303728.0\ncomplexite=70917031728.0\ncomplexite=74068759728.0\ncomplexite=77220487728.0\ncomplexite=80372215728.0\ncomplexite=83523943728.0\ncomplexite=86675671728.0\ncomplexite=89827399728.0\ncomplexite=92979127728.0\nevaluation after epoch 2\nAccuracy of the network on the 10000 test images: 52 %\ncomplexite=102434311728.0\ncomplexite=105586039728.0\ncomplexite=108737767728.0\ncomplexite=111889495728.0\ncomplexite=115041223728.0\ncomplexite=118192951728.0\ncomplexite=121344679728.0\ncomplexite=124496407728.0\ncomplexite=127648135728.0\ncomplexite=130799863728.0\ncomplexite=133951591728.0\ncomplexite=137103319728.0\ncomplexite=140255047728.0\nevaluation after epoch 3\nAccuracy of the network on the 10000 test images: 59 %\ncomplexite=149710231728.0\ncomplexite=152861959728.0\ncomplexite=156013687728.0\ncomplexite=159165415728.0\ncomplexite=162317143728.0\ncomplexite=165468871728.0\ncomplexite=168620599728.0\ncomplexite=171772327728.0\ncomplexite=174924055728.0\ncomplexite=178075783728.0\ncomplexite=181227511728.0\ncomplexite=184379239728.0\ncomplexite=187530967728.0\nevaluation after epoch 4\nAccuracy of the network on the 10000 test images: 61 %\ncomplexite=196986151728.0\ncomplexite=200137879728.0\ncomplexite=203289607728.0\ncomplexite=206441335728.0\ncomplexite=209593063728.0\ncomplexite=212744791728.0\ncomplexite=215896519728.0\ncomplexite=219048247728.0\ncomplexite=222199975728.0\ncomplexite=225351703728.0\ncomplexite=228503431728.0\ncomplexite=231655159728.0\ncomplexite=234806887728.0\nevaluation after epoch 5\nAccuracy of the network on the 10000 test images: 62 %\ncomplexite=244262071728.0\ncomplexite=247413799728.0\ncomplexite=250565527728.0\ncomplexite=253717255728.0\ncomplexite=256868983728.0\ncomplexite=260020711728.0\ncomplexite=263172439728.0\ncomplexite=266324167728.0\ncomplexite=269475895728.0\ncomplexite=272627623728.0\ncomplexite=275779351728.0\ncomplexite=278931079728.0\ncomplexite=282082807728.0\nevaluation after epoch 6\nAccuracy of the network on the 10000 test images: 62 %\nFinished Training\nGroundTruth:    cat  ship  ship plane\nPredicted:   ship  ship  ship plane\ncomplexiteImage=7882471728.0\ncomplexiteEpoque=102434311728.0\ncomplexiteTotale=575193511728.0\nAccuracy of the network on the 10000 test images: 62 %\nAccuracy of plane : 59 %\nAccuracy of   car : 88 %\nAccuracy of  bird : 46 %\nAccuracy of   cat : 48 %\nAccuracy of  deer : 48 %\nAccuracy of   dog : 47 %\nAccuracy of  frog : 72 %\nAccuracy of horse : 66 %\nAccuracy of  ship : 80 %\nAccuracy of truck : 60 %\n\n\n'
 
 
 """
