@@ -28,6 +28,9 @@ complexiteImage = 0
 complexiteEpoque = 0
 complexiteTotale = 0
 
+#Variable affichage debogage
+debogage = 0
+
 ### Utilisation GPU CUDA
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -93,64 +96,73 @@ class Net(nn.Module):
 
     def forward(self, x):
         #print(x)
-        #print(x.size())
-        #print("Conv 1")
+        if (debogage == 1):
+            print(x.size())
+            print("Conv 1")
         #Conv 1
         xsize = x.size()
         totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
         ajoutPoidsConvolution(self, 3, 4, 3, totalSize)
         x = self.conv1(x)
-        #print(x.size())
-        #print("Relu")
+        if (debogage == 1):
+            print(x.size())
+            print("Relu")
         #Relu
         xsize = x.size()
         totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
         ajoutPoidsRelu(self, totalSize)
         x = F.relu(x)
-        #print(x.size())
-        #print("Conv 2")
+        if (debogage == 1):
+            print(x.size())
+            print("Conv 2")
         #Conv2
         xsize = x.size()
         totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
         ajoutPoidsConvolution(self, 4, 6, 3, totalSize)
         x = self.conv2(x)
-        #print(x.size())
-        #print("Relu")
+        if (debogage == 1):
+            print(x.size())
+            print("Relu")
         #Relu
         xsize = x.size()
         totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
         ajoutPoidsRelu(self, totalSize)
         x = F.relu(x)
-        #print(x.size())
-        #print("Pool")
+        if (debogage == 1):
+            print(x.size())
+            print("Pool")
         #Pool
         xsize = x.size()
         totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
         ajoutPoidsMaxPool(self, 2, totalSize)
         x = self.pool(x)
-        #print(x.size())
-        #print("Conv 3")
+        if (debogage == 1):
+            print(x.size())
+            print("Conv 3")
         #Conv3
         xsize = x.size()
         totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
         ajoutPoidsConvolution(self, 6, 16, 5, totalSize)
         x = self.conv3(x)
-        #print(x.size())
-        #print("Relu")
+        if (debogage == 1):
+            print(x.size())
+            print("Relu")
         #Relu
         xsize = x.size()
         totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
         ajoutPoidsRelu(self, totalSize)
         x = F.relu(x)
-        #print(x.size())
-        #print("Pool")
+        if (debogage == 1):
+            print(x.size())
+            print("Pool")
         #Pool
         xsize = x.size()
         totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
         ajoutPoidsMaxPool(self, 2, totalSize)
         x = self.pool(x)
 
-        #print(x.size())
+        if (debogage == 1):
+            print(x.size())
 
         x = x.view(-1, 16 * 5 * 5)
         
