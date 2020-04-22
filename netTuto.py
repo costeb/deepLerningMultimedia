@@ -96,117 +96,73 @@ class Net(nn.Module):
 
     def forward(self, x):
         #print(x)
-<<<<<<< HEAD
         if (debogage == 1):
             print(x.size())
             print("Conv 1")
-=======
-        print(x.size())
-        print("Conv 1")
->>>>>>> 4fb9fc414309603234d963c0a40357c6767bb511
         #Conv 1
         xsize = x.size()
         totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
         ajoutPoidsConvolution(self, 3, 4, 3, totalSize)
         x = self.conv1(x)
-<<<<<<< HEAD
         if (debogage == 1):
             print(x.size())
             print("Relu")
-=======
-        print(x.size())
-        print("Relu")
->>>>>>> 4fb9fc414309603234d963c0a40357c6767bb511
         #Relu
         xsize = x.size()
         totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
         ajoutPoidsRelu(self, totalSize)
         x = F.relu(x)
-<<<<<<< HEAD
         if (debogage == 1):
             print(x.size())
             print("Conv 2")
-=======
-        print(x.size())
-        print("Conv 2")
->>>>>>> 4fb9fc414309603234d963c0a40357c6767bb511
         #Conv2
         xsize = x.size()
         totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
         ajoutPoidsConvolution(self, 4, 6, 3, totalSize)
         x = self.conv2(x)
-<<<<<<< HEAD
         if (debogage == 1):
             print(x.size())
             print("Relu")
-=======
-        print(x.size())
-        print("Relu")
->>>>>>> 4fb9fc414309603234d963c0a40357c6767bb511
         #Relu
         xsize = x.size()
         totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
         ajoutPoidsRelu(self, totalSize)
         x = F.relu(x)
-<<<<<<< HEAD
         if (debogage == 1):
             print(x.size())
             print("Pool")
-=======
-        print(x.size())
-        print("Pool")
->>>>>>> 4fb9fc414309603234d963c0a40357c6767bb511
         #Pool
         xsize = x.size()
         totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
         ajoutPoidsMaxPool(self, 2, totalSize)
         x = self.pool(x)
-<<<<<<< HEAD
         if (debogage == 1):
             print(x.size())
             print("Conv 3")
-=======
-        print(x.size())
-        print("Conv 3")
->>>>>>> 4fb9fc414309603234d963c0a40357c6767bb511
         #Conv3
         xsize = x.size()
         totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
         ajoutPoidsConvolution(self, 6, 16, 5, totalSize)
         x = self.conv3(x)
-<<<<<<< HEAD
         if (debogage == 1):
             print(x.size())
             print("Relu")
-=======
-        print(x.size())
-        print("Relu")
->>>>>>> 4fb9fc414309603234d963c0a40357c6767bb511
         #Relu
         xsize = x.size()
         totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
         ajoutPoidsRelu(self, totalSize)
         x = F.relu(x)
-<<<<<<< HEAD
         if (debogage == 1):
             print(x.size())
             print("Pool")
-=======
-        print(x.size())
-        print("Pool")
->>>>>>> 4fb9fc414309603234d963c0a40357c6767bb511
         #Pool
         xsize = x.size()
         totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
         ajoutPoidsMaxPool(self, 2, totalSize)
         x = self.pool(x)
 
-<<<<<<< HEAD
         if (debogage == 1):
             print(x.size())
-=======
-        print(x.size())
->>>>>>> 4fb9fc414309603234d963c0a40357c6767bb511
 
         x = x.view(-1, 16 * 5 * 5)
         
