@@ -3,7 +3,7 @@
 import torch
 import torchvision
 import torchvision.transforms as transforms
-
+import time
 ##The output of torchvision datasets are PILImage images of range [0, 1]. We transform them to Tensors of normalized range [-1, 1]. .. note:
 
 transform = transforms.Compose(
@@ -225,6 +225,8 @@ def ajoutPoidsLinear(self, y):
 ##This is when things start to get interesting. We simply have to loop over our data iterator, and feed the inputs to the network and optimize.
 
 evaluation()
+# Debut du decompte du temps
+start_time = time.time()
 for epoch  in range(2):  # loop over the dataset multiple times
 
     running_loss = 0.0
@@ -254,6 +256,10 @@ for epoch  in range(2):  # loop over the dataset multiple times
     print('evaluation after epoch', (epoch + 1))
     evaluation()
 
+# Affichage du temps d execution
+print("Temps d execution : %s secondes ---" % (time.time() - start_time))
+print( time.time() - start_time )
+print( complexiteTotale / (time.time() - start_time) )
 
 
 print('Finished Training')
