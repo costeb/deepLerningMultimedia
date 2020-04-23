@@ -371,3 +371,124 @@ for i in range(10):
     print('Accuracy of %5s : %2d %%' % (
         classes[i], 100 * class_correct[i] / class_total[i]))
 
+"""
+
+resulat 6 epoch plus time
+
+Files already downloaded and verified
+Files already downloaded and verified
+cuda:0
+ deer horse   dog  frog
+Accuracy of the network on the 10000 test images: 10 %
+complexite=7878270048.0
+complexite=11028318048.0
+complexite=14178366048.0
+complexite=17328414048.0
+complexite=20478462048.0
+complexite=23628510048.0
+complexite=26778558048.0
+complexite=29928606048.0
+complexite=33078654048.0
+complexite=36228702048.0
+complexite=39378750048.0
+complexite=42528798048.0
+complexite=45678846048.0
+evaluation after epoch 1
+Accuracy of the network on the 10000 test images: 46 %
+complexite=55128990048.0
+complexite=58279038048.0
+complexite=61429086048.0
+complexite=64579134048.0
+complexite=67729182048.0
+complexite=70879230048.0
+complexite=74029278048.0
+complexite=77179326048.0
+complexite=80329374048.0
+complexite=83479422048.0
+complexite=86629470048.0
+complexite=89779518048.0
+complexite=92929566048.0
+evaluation after epoch 2
+Accuracy of the network on the 10000 test images: 54 %
+complexite=102379710048.0
+complexite=105529758048.0
+complexite=108679806048.0
+complexite=111829854048.0
+complexite=114979902048.0
+complexite=118129950048.0
+complexite=121279998048.0
+complexite=124430046048.0
+complexite=127580094048.0
+complexite=130730142048.0
+complexite=133880190048.0
+complexite=137030238048.0
+complexite=140180286048.0
+evaluation after epoch 3
+Accuracy of the network on the 10000 test images: 57 %
+complexite=149630430048.0
+complexite=152780478048.0
+complexite=155930526048.0
+complexite=159080574048.0
+complexite=162230622048.0
+complexite=165380670048.0
+complexite=168530718048.0
+complexite=171680766048.0
+complexite=174830814048.0
+complexite=177980862048.0
+complexite=181130910048.0
+complexite=184280958048.0
+complexite=187431006048.0
+evaluation after epoch 4
+Accuracy of the network on the 10000 test images: 61 %
+complexite=196881150048.0
+complexite=200031198048.0
+complexite=203181246048.0
+complexite=206331294048.0
+complexite=209481342048.0
+complexite=212631390048.0
+complexite=215781438048.0
+complexite=218931486048.0
+complexite=222081534048.0
+complexite=225231582048.0
+complexite=228381630048.0
+complexite=231531678048.0
+complexite=234681726048.0
+evaluation after epoch 5
+Accuracy of the network on the 10000 test images: 57 %
+complexite=244131870048.0
+complexite=247281918048.0
+complexite=250431966048.0
+complexite=253582014048.0
+complexite=256732062048.0
+complexite=259882110048.0
+complexite=263032158048.0
+complexite=266182206048.0
+complexite=269332254048.0
+complexite=272482302048.0
+complexite=275632350048.0
+complexite=278782398048.0
+complexite=281932446048.0
+evaluation after epoch 6
+Accuracy of the network on the 10000 test images: 62 %
+Temps d execution : 252.22105407714844 secondes ---
+252.22113680839539
+2248061030.332114
+Finished Training
+GroundTruth:    cat  ship  ship plane
+Predicted:   ship   car   car plane
+complexiteImage=7878270048.0
+complexiteEpoque=102379710048.0
+complexiteTotale=574886910048.0
+Accuracy of the network on the 10000 test images: 62 %
+Accuracy of plane : 58 %
+Accuracy of   car : 76 %
+Accuracy of  bird : 35 %
+Accuracy of   cat : 36 %
+Accuracy of  deer : 66 %
+Accuracy of   dog : 49 %
+Accuracy of  frog : 69 %
+Accuracy of horse : 75 %
+Accuracy of  ship : 74 %
+Accuracy of truck : 77 %
+
+"""
