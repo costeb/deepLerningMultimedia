@@ -614,4 +614,124 @@ Accuracy of  ship : 71 %
 Accuracy of truck : 63 %
 
 
+
+resultat 6 epoch et time
+
+Files already downloaded and verified
+Files already downloaded and verified
+cuda:0
+horse   cat   cat horse
+Accuracy of the network on the 10000 test images: 10 %
+complexite=11986672752.0
+complexite=16779424752.0
+complexite=21572176752.0
+complexite=26364928752.0
+complexite=31157680752.0
+complexite=35950432752.0
+complexite=40743184752.0
+complexite=45535936752.0
+complexite=50328688752.0
+complexite=55121440752.0
+complexite=59914192752.0
+complexite=64706944752.0
+complexite=69499696752.0
+evaluation after epoch 1
+Accuracy of the network on the 10000 test images: 46 %
+complexite=83877952752.0
+complexite=88670704752.0
+complexite=93463456752.0
+complexite=98256208752.0
+complexite=103048960752.0
+complexite=107841712752.0
+complexite=112634464752.0
+complexite=117427216752.0
+complexite=122219968752.0
+complexite=127012720752.0
+complexite=131805472752.0
+complexite=136598224752.0
+complexite=141390976752.0
+evaluation after epoch 2
+Accuracy of the network on the 10000 test images: 52 %
+complexite=155769232752.0
+complexite=160561984752.0
+complexite=165354736752.0
+complexite=170147488752.0
+complexite=174940240752.0
+complexite=179732992752.0
+complexite=184525744752.0
+complexite=189318496752.0
+complexite=194111248752.0
+complexite=198904000752.0
+complexite=203696752752.0
+complexite=208489504752.0
+complexite=213282256752.0
+evaluation after epoch 3
+Accuracy of the network on the 10000 test images: 57 %
+complexite=227660512752.0
+complexite=232453264752.0
+complexite=237246016752.0
+complexite=242038768752.0
+complexite=246831520752.0
+complexite=251624272752.0
+complexite=256417024752.0
+complexite=261209776752.0
+complexite=266002528752.0
+complexite=270795280752.0
+complexite=275588032752.0
+complexite=280380784752.0
+complexite=285173536752.0
+evaluation after epoch 4
+Accuracy of the network on the 10000 test images: 60 %
+complexite=299551792752.0
+complexite=304344544752.0
+complexite=309137296752.0
+complexite=313930048752.0
+complexite=318722800752.0
+complexite=323515552752.0
+complexite=328308304752.0
+complexite=333101056752.0
+complexite=337893808752.0
+complexite=342686560752.0
+complexite=347479312752.0
+complexite=352272064752.0
+complexite=357064816752.0
+evaluation after epoch 5
+Accuracy of the network on the 10000 test images: 61 %
+complexite=371443072752.0
+complexite=376235824752.0
+complexite=381028576752.0
+complexite=385821328752.0
+complexite=390614080752.0
+complexite=395406832752.0
+complexite=400199584752.0
+complexite=404992336752.0
+complexite=409785088752.0
+complexite=414577840752.0
+complexite=419370592752.0
+complexite=424163344752.0
+complexite=428956096752.0
+evaluation after epoch 6
+Accuracy of the network on the 10000 test images: 63 %
+Temps d execution : 269.3908734321594 secondes ---
+269.3909499645233
+3202390961.0805836
+Finished Training
+GroundTruth:    cat  ship  ship plane
+Predicted:   ship  ship  ship plane
+complexiteImage=11986672752.0
+complexiteEpoque=155769232752.0
+complexiteTotale=874682032752.0
+Accuracy of the network on the 10000 test images: 63 %
+Accuracy of plane : 62 %
+Accuracy of   car : 78 %
+Accuracy of  bird : 48 %
+Accuracy of   cat : 33 %
+Accuracy of  deer : 58 %
+Accuracy of   dog : 48 %
+Accuracy of  frog : 77 %
+Accuracy of horse : 67 %
+Accuracy of  ship : 86 %
+Accuracy of truck : 68 %
+
+
 """
