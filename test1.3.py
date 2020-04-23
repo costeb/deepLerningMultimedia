@@ -292,7 +292,7 @@ def ajoutPoidsLinear(self, y):
 evaluation()
 # Debut du decompte du temps
 start_time = time.time()
-for epoch  in range(2):  # loop over the dataset multiple times
+for epoch  in range(6):  # loop over the dataset multiple times
 
     running_loss = 0.0
     for i, data in enumerate(trainloader, 0):
@@ -468,6 +468,124 @@ Accuracy of  frog : 63 %
 Accuracy of horse : 55 %
 Accuracy of  ship : 63 %
 Accuracy of truck : 38 %
+
+test 6 epoch et time
+
+Files already downloaded and verified
+Files already downloaded and verified
+cuda:0
+plane  bird  bird  ship
+Accuracy of the network on the 10000 test images: 10 %
+complexite=12492635056.0
+complexite=17487691056.0
+complexite=22482747056.0
+complexite=27477803056.0
+complexite=32472859056.0
+complexite=37467915056.0
+complexite=42462971056.0
+complexite=47458027056.0
+complexite=52453083056.0
+complexite=57448139056.0
+complexite=62443195056.0
+complexite=67438251056.0
+complexite=72433307056.0
+evaluation after epoch 1
+Accuracy of the network on the 10000 test images: 37 %
+complexite=87418475056.0
+complexite=92413531056.0
+complexite=97408587056.0
+complexite=102403643056.0
+complexite=107398699056.0
+complexite=112393755056.0
+complexite=117388811056.0
+complexite=122383867056.0
+complexite=127378923056.0
+complexite=132373979056.0
+complexite=137369035056.0
+complexite=142364091056.0
+complexite=147359147056.0
+evaluation after epoch 2
+Accuracy of the network on the 10000 test images: 45 %
+complexite=162344315056.0
+complexite=167339371056.0
+complexite=172334427056.0
+complexite=177329483056.0
+complexite=182324539056.0
+complexite=187319595056.0
+complexite=192314651056.0
+complexite=197309707056.0
+complexite=202304763056.0
+complexite=207299819056.0
+complexite=212294875056.0
+complexite=217289931056.0
+complexite=222284987056.0
+evaluation after epoch 3
+Accuracy of the network on the 10000 test images: 51 %
+complexite=237270155056.0
+complexite=242265211056.0
+complexite=247260267056.0
+complexite=252255323056.0
+complexite=257250379056.0
+complexite=262245435056.0
+complexite=267240491056.0
+complexite=272235547056.0
+complexite=277230603056.0
+complexite=282225659056.0
+complexite=287220715056.0
+complexite=292215771056.0
+complexite=297210827056.0
+evaluation after epoch 4
+Accuracy of the network on the 10000 test images: 50 %
+complexite=312195995056.0
+complexite=317191051056.0
+complexite=322186107056.0
+complexite=327181163056.0
+complexite=332176219056.0
+complexite=337171275056.0
+complexite=342166331056.0
+complexite=347161387056.0
+complexite=352156443056.0
+complexite=357151499056.0
+complexite=362146555056.0
+complexite=367141611056.0
+complexite=372136667056.0
+evaluation after epoch 5
+Accuracy of the network on the 10000 test images: 55 %
+complexite=387121835056.0
+complexite=392116891056.0
+complexite=397111947056.0
+complexite=402107003056.0
+complexite=407102059056.0
+complexite=412097115056.0
+complexite=417092171056.0
+complexite=422087227056.0
+complexite=427082283056.0
+complexite=432077339056.0
+complexite=437072395056.0
+complexite=442067451056.0
+complexite=447062507056.0
+evaluation after epoch 6
+Accuracy of the network on the 10000 test images: 56 %
+Temps d execution : 298.58680510520935 secondes ---
+298.58689427375793
+3011216714.181709
+Finished Training
+GroundTruth:    cat  ship  ship plane
+Predicted:    cat  ship  ship  ship
+complexiteImage=12492635056.0
+complexiteEpoque=162344315056.0
+complexiteTotale=911602715056.0
+Accuracy of the network on the 10000 test images: 56 %
+Accuracy of plane : 51 %
+Accuracy of   car : 64 %
+Accuracy of  bird : 53 %
+Accuracy of   cat : 48 %
+Accuracy of  deer : 49 %
+Accuracy of   dog : 38 %
+Accuracy of  frog : 53 %
+Accuracy of horse : 66 %
+Accuracy of  ship : 83 %
+Accuracy of truck : 56 %
 
 
 """
