@@ -1,6 +1,6 @@
 """
 Resumer : 
-conv1:4-8-3
+conv1:3-8-3
 conv2:8-16-3
 conv3:16-64-5
 
@@ -113,7 +113,7 @@ class Net(nn.Module):
         #Conv 1
         xsize = x.size()
         totalSize = xsize[0]*xsize[1]*xsize[2]*xsize[3]
-        ajoutPoidsConvolution(self, 4, 8, 3, totalSize)
+        ajoutPoidsConvolution(self, 3, 8, 3, totalSize)
         x = self.conv1(x)
         if (debogage == 1):
             print(x.size())
@@ -392,8 +392,8 @@ Resultat 6epoch plus time
 Files already downloaded and verified
 Files already downloaded and verified
 cuda:0
-  cat  ship   dog   car
-Accuracy of the network on the 10000 test images: 11 %
+ ship plane   dog horse
+Accuracy of the network on the 10000 test images: 8 %
 complexite=63100470096.0
 complexite=88330566096.0
 complexite=113560662096.0
@@ -408,7 +408,7 @@ complexite=315401430096.0
 complexite=340631526096.0
 complexite=365861622096.0
 evaluation after epoch 1
-Accuracy of the network on the 10000 test images: 51 %
+Accuracy of the network on the 10000 test images: 46 %
 complexite=441551910096.0
 complexite=466782006096.0
 complexite=492012102096.0
@@ -423,7 +423,7 @@ complexite=693852870096.0
 complexite=719082966096.0
 complexite=744313062096.0
 evaluation after epoch 2
-Accuracy of the network on the 10000 test images: 59 %
+Accuracy of the network on the 10000 test images: 62 %
 complexite=820003350096.0
 complexite=845233446096.0
 complexite=870463542096.0
@@ -438,7 +438,7 @@ complexite=1072304310096.0
 complexite=1097534406096.0
 complexite=1122764502096.0
 evaluation after epoch 3
-Accuracy of the network on the 10000 test images: 67 %
+Accuracy of the network on the 10000 test images: 68 %
 complexite=1198454790096.0
 complexite=1223684886096.0
 complexite=1248914982096.0
@@ -453,7 +453,7 @@ complexite=1450755750096.0
 complexite=1475985846096.0
 complexite=1501215942096.0
 evaluation after epoch 4
-Accuracy of the network on the 10000 test images: 70 %
+Accuracy of the network on the 10000 test images: 69 %
 complexite=1576906230096.0
 complexite=1602136326096.0
 complexite=1627366422096.0
@@ -468,7 +468,7 @@ complexite=1829207190096.0
 complexite=1854437286096.0
 complexite=1879667382096.0
 evaluation after epoch 5
-Accuracy of the network on the 10000 test images: 71 %
+Accuracy of the network on the 10000 test images: 70 %
 complexite=1955357670096.0
 complexite=1980587766096.0
 complexite=2005817862096.0
@@ -483,26 +483,27 @@ complexite=2207658630096.0
 complexite=2232888726096.0
 complexite=2258118822096.0
 evaluation after epoch 6
-Accuracy of the network on the 10000 test images: 71 %
-Temps d execution : 272.08198523521423 secondes ---
-272.08207726478577
-16691346373.283804
+Accuracy of the network on the 10000 test images: 72 %
+Temps d execution : 272.40768337249756 secondes ---
+272.40775966644287
+16671390976.507708
 Finished Training
 GroundTruth:    cat  ship  ship plane
-Predicted:   ship  ship  ship plane
+Predicted:    cat  ship  ship plane
 complexiteImage=63100470096.0
 complexiteEpoque=820003350096.0
 complexiteTotale=4604517750096.0
-Accuracy of the network on the 10000 test images: 71 %
+Accuracy of the network on the 10000 test images: 72 %
 Accuracy of plane : 74 %
 Accuracy of   car : 85 %
-Accuracy of  bird : 51 %
-Accuracy of   cat : 44 %
-Accuracy of  deer : 78 %
-Accuracy of   dog : 60 %
-Accuracy of  frog : 77 %
-Accuracy of horse : 75 %
-Accuracy of  ship : 88 %
-Accuracy of truck : 74 %
+Accuracy of  bird : 58 %
+Accuracy of   cat : 54 %
+Accuracy of  deer : 66 %
+Accuracy of   dog : 62 %
+Accuracy of  frog : 79 %
+Accuracy of horse : 76 %
+Accuracy of  ship : 80 %
+Accuracy of truck : 84 %
+
 
 """
